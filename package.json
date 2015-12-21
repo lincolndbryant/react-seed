@@ -1,26 +1,23 @@
 {
   "name": "react-seed",
   "version": "0.0.1-alpha",
-  "description": "Sci-fi UI-kit experiment with React.js",
+  "description": "animation experiments",
   "main": "./build/react-seed.js",
   "author": {
-    "name": "Klaus Nygård",
-    "email": "klaus.nygard@gmail.com",
-    "url": "http://klausnygard.fi"
+    "name": "Lincoln Bryant",
+    "email": "bryant.lincoln@gmail.com"
   },
   "license": "MIT",
   "dependencies": {
     "babel-core": "^5.8.25",
     "classnames": "^2.2.0",
+    "lodash.range": "^3.0.1",
     "lodash.times": "^3.0.3",
-    "onecolor": "^2.5.0",
     "react": "^0.14.3",
     "react-addons-pure-render-mixin": "^0.14.3",
     "react-dom": "^0.14.0",
     "react-motion": "^0.3.1",
-    "tinycolor": "0.0.1",
-    "tinycolor2": "^1.3.0",
-    "underscore": "^1.8.3"
+    "tinycolor2": "^1.3.0"
   },
   "devDependencies": {
     "babel": "^5.8.23",
@@ -47,7 +44,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/nygardk/react-scifi"
+    "url": "https://github.com/lincolndbryant/react-seed"
   },
   "scripts": {
     "start": "npm install && npm run run-demos",

@@ -1,6 +1,6 @@
 import React from 'react'
 import Seed from './seed'
-import _ from 'underscore'
+import range from 'lodash.range'
 import {Motion, spring} from 'react-motion';
 
 export default class Scene extends React.Component {
@@ -16,8 +16,8 @@ export default class Scene extends React.Component {
     let seeds = [];
     let key = 0;
 
-    _.range(0, 10).forEach((x) => {
-      _.range(0, 10).forEach((y) => {
+    range(0, 10).forEach((x) => {
+      range(0, 10).forEach((y) => {
         seeds.push(<Motion key={key} defaultStyle={{x: 0}} style={{x: spring(100, [100, 5])}}>
           {value => <Seed {...{ x, y, key, value}} r={this.state.r} />}
         </Motion>);
