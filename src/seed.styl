@@ -3,19 +3,22 @@ g
 
   circle {
     stroke-width: 2px
-    stroke: red
+    stroke: #006699
   }
+
+.child.move
+  animation: move 2s linear infinite alternate
 
 
 @keyframes hideshow {
-  0% { opacity: 1; }
+  0% { opacity: 0; }
   10% { opacity: 1; }
-  15% { opacity: 0; }
+  90% { opacity: 1; }
   100% { opacity: 0; }
 }
 
 @keyframes move {
   from {  }
-  to { transform: translate(0, 100px) }
+  to { transform: translate(0, 100%) }
 }
 

@@ -36,12 +36,6 @@ module.exports = {
       commonjs2: 'react',
       commonjs: 'react',
       amd: 'react'
-    },
-    'underscore': {
-      root: 'underscore',
-      commonjs2: 'underscore',
-      commonjs: 'underscore',
-      amd: 'underscore'
     }
   },
 };

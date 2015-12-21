@@ -7,5 +7,5 @@ const scene = ReactDOM.render(<Scene />, document.querySelector('#app'));
 let r = 50;
 
 setInterval(() => {
-  scene.setState({r: r++})
+  //scene.setState({r: r++})
 }, 1000)

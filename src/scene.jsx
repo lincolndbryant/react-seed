@@ -8,7 +8,7 @@ export default class Scene extends React.Component {
   constructor() {
     super();
     this.state = {
-      r: 50
+      r: 100
     }
   }
 
@@ -18,9 +18,7 @@ export default class Scene extends React.Component {
 
     range(0, 10).forEach((x) => {
       range(0, 10).forEach((y) => {
-        seeds.push(<Motion key={key} defaultStyle={{x: 0}} style={{x: spring(100, [100, 5])}}>
-          {value => <Seed {...{ x, y, key, value}} r={this.state.r} />}
-        </Motion>);
+        seeds.push( <Seed {...{ x, y, key}} r={this.state.r} /> );
         key++;
       })
     });
