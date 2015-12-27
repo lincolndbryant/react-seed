@@ -1,7 +1,6 @@
 import React from 'react'
 import Seed from './seed'
 import range from 'lodash.range'
-import {Motion, spring} from 'react-motion';
 
 export default class Scene extends React.Component {
 
