@@ -16,8 +16,8 @@ export default class Scene extends React.Component {
     let seeds = [];
     let key = 0;
 
-    range(0, 10).forEach((x) => {
-      range(0, 10).forEach((y) => {
+    range(0, 10).forEach((y) => {
+      range(0, 10).forEach((x) => {
         seeds.push( <Seed {...{ x, y, key}} r={this.state.r} /> );
         key++;
       })
@@ -25,7 +25,16 @@ export default class Scene extends React.Component {
     return seeds;
   }
 
+  componentDidMount() {
+    document.addEventListener('keypress', (evt) => {
+      if (evt.keyCode == 32) {
+        this.setState({paused: !this.state.paused})
+      }
+    })
+  }
+
   render() {
+    document.body.classList.toggle('paused', this.state.paused);
     return (
       <svg version="1.1"
            baseProfile="full"

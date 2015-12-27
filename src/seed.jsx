@@ -23,12 +23,19 @@ export default class Seed extends React.Component {
       .brighten(Math.random() * 20);
 
     return (<g {... {transform} }>
-      <circle className="seed" {... {r}} cx={ 0 } cy={ 0 } fill={ color.toRgbString() } clipPath="url(#cut-off-bottom)" style={ style } />
-      <circle className="child move" cx={ 0 } cy={r/4} r={r/4} fill={color.toRgbString()} />
+      <circle className="seed" {... {r}} cx={ 0 } cy={ 0 } fill={ color.toRgbString() } clipPath="url(#clip)" style={ style } />
+      <circle className="child " cx={ 0 } cy={r/4} r={r/4} fill={color.toRgbString()} />
+      <path d="M50 14
+           L 50 86
+           A 100 100, 0, 0, 0, 86, 50
+           A 100 100, 0, 0, 0, 50, 14
+           Z" fill="rgba(1, 0, 0, 0.9)"/>
       { /* <circle className="child" cx={ 0 } cy={r/4 * 3} r={r/4} fill={color.toRgbString()} /> */ }
       { /* <circle r="10" x={ r } cy={ r } fill={ color.toRgbString() } /> */ }
       <defs>
-
+        <clipPath id="clip">
+          <circle {... {r}} cx={ 0 } cy={ 0 } />
+        </clipPath>
       </defs>
     </g>)
   }
