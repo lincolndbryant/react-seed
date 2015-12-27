@@ -4,10 +4,12 @@ body.paused *
 g
   transform-origin 50% 50%;
 
-  circle {
+  circle
     stroke-width: 2px
     stroke: #006699
-  }
+
+    &.seed
+      animation: hideshow 5s infinite alternate
 
 .child.move
   animation: move 2s linear infinite alternate

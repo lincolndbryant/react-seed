@@ -4,8 +4,12 @@ import { Scene } from 'react-seed';
 import './demo.styl';
 
 const scene = ReactDOM.render(<Scene />, document.querySelector('#app'));
-let r = 50;
+let r = 100;
 
 setInterval(() => {
-  //scene.setState({r: r++})
+  scene.setState({r: r++})
 }, 1000)
+
+window.setRadius = function(r) {
+  scene.setState({r: r});
+};

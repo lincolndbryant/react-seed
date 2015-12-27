@@ -12,19 +12,15 @@ export default class Seed extends React.Component {
     let r = this.props.r;
     let x = r * this.props.x;
     let y = r * this.props.y;
-    let transform = `translate(${x}, ${y})`;
-
-    let style = {
-      animation: `hideshow 5s infinite alternate`
-    };
+    let transform = `translate(${x}, ${y}) scale(${r/100})`;
 
     let color = tinycolor('#006699')
       .setAlpha(this.opacity)
       .brighten(Math.random() * 20);
 
     return (<g {... {transform} }>
-      <circle className="seed" {... {r}} cx={ 0 } cy={ 0 } fill={ color.toRgbString() } clipPath="url(#clip)" style={ style } />
-      <circle className="child " cx={ 0 } cy={r/4} r={r/4} fill={color.toRgbString()} />
+      <circle className="seed" r="100" cx={ 0 } cy={ 0 } fill={ color.toRgbString() } clipPath="url(#clip)" />
+      <circle className="child " cx={ 0 } cy="25" r="25" fill={color.toRgbString()} />
       <path d="M50 14
            L 50 86
            A 100 100, 0, 0, 0, 86, 50
@@ -34,7 +30,7 @@ export default class Seed extends React.Component {
       { /* <circle r="10" x={ r } cy={ r } fill={ color.toRgbString() } /> */ }
       <defs>
         <clipPath id="clip">
-          <circle {... {r}} cx={ 0 } cy={ 0 } />
+          <circle r="100" cx={ 0 } cy={ 0 } />
         </clipPath>
       </defs>
     </g>)
