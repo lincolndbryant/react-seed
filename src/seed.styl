@@ -11,6 +11,15 @@ g
     &.seed
       animation: hideshow 5s infinite alternate
 
+  &.grow
+    animation: grow 2s
+
+@keyframes grow
+  from { transform: scale(100%) }
+  to {
+    transform: scale(120%)
+  }
+
 .child.move
   animation: move 2s linear infinite alternate
 
