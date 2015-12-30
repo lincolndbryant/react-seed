@@ -3,7 +3,8 @@ import Seed from './seed'
 import range from 'lodash.range'
 
 const COLS = 10,
-    ROWS = 10;
+  ROWS = 10,
+  STEP_DELAY = 50;
 
 
 export default class Scene extends React.Component {
@@ -41,30 +42,55 @@ export default class Scene extends React.Component {
   }
 
   onSeedClicked(seed, e) {
-    seed.setState({highlight: true, highlightCounter: 3});
+    this.highlightSeed(seed);
+  }
+
+  highlightSeed(seed, acc=5) {
+    if (acc <= 0) {
+      return;
+    }
+    seed.setState({highlight: true, highlightCounter: acc});
     setTimeout(() => {
       this.fadeHighlight(seed)
-    }, 1000);
-    this.getNeighbors(seed).forEach(seed => {
-      seed.setState({highlight: true, highlightCounter: 3});
-      setTimeout(() => {
-        this.fadeHighlight(seed)
-      }, 1000);
-    })
+    }, STEP_DELAY);
+
+    setTimeout(() => {
+      this.getNeighbors(seed).forEach(seed => {
+        this.highlightSeed(seed, acc - 1);
+        setTimeout(() => {
+          this.fadeHighlight(seed)
+        }, STEP_DELAY);
+      })
+    }, STEP_DELAY);
   }
 
   fadeHighlight(seed) {
-    let counter = seed.state.highlightCounter-1
-    seed.setState({highlightCounter: counter, highlight: counter > 0});
-    if (counter > 0) {
-      setTimeout(() => {
-        this.fadeHighlight(seed)
-      }, 1000);
+    if (seed.state.highlightCounter <= 0) {
+      return;
     }
+    let counter = seed.state.highlightCounter - 1;
+    seed.setState({highlightCounter: counter, highlight: counter > 0});
+    setTimeout(() => {
+      this.fadeHighlight(seed)
+    }, STEP_DELAY);
   }
 
   getNeighbors(seed) {
-    let seeds = [this.refs[seed.props.id-1], this.refs[seed.props.id+1]]
+    let seeds = []
+
+    let tryNeighbor = (id) => {
+      if (this.refs[id]) {
+        seeds.push(this.refs[id])
+      }
+    }
+
+    tryNeighbor(seed.props.id - 1)
+    tryNeighbor(seed.props.id + 1)
+    tryNeighbor(seed.props.id - COLS)
+    tryNeighbor(seed.props.id + COLS)
+
+    console.log(seed, 'has neighbords', seeds);
+
     return seeds;
   }
 

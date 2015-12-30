@@ -2,7 +2,7 @@ import React from 'react'
 
 export function quarterCircle() {
 
-  return (<g>
+  return (<g className="quad">
       <path d="M50 14
            L 50 86
            A 100 100, 0, 0, 0, 86, 50
