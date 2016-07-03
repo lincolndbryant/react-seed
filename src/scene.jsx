@@ -4,7 +4,7 @@ import range from 'lodash.range'
 
 const COLS = 10,
   ROWS = 10,
-  STEP_DELAY = 50;
+  STEP_DELAY = 25;
 
 
 export default class Scene extends React.Component {

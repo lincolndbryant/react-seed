@@ -49,7 +49,7 @@
     "start": "npm install && npm run run-demos",
     "build-src": "webpack -p --config webpack.config.js --progress --colors",
     "build": "npm run build-src && npm build-demos",
-    "run-demos": "NODE_ENV=development webpack-dev-server --hot --inline --config webpack.demos.config.js --content-base demo/ --progress --colors",
+    "run-demos": "NODE_ENV=development webpack-dev-server --hot --inline --config webpack.demos.config.js --content-base demo/ --progress --colors --port 8081",
     "build-demos": "NODE_ENV=production webpack -p --config webpack.demos.config.js"
   },
   "engines": {
